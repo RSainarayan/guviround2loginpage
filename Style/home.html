@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+   
+   
+    <title>Home</title>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo">
+            <p>Welcome</p>
+        </div>
+
+        <div class="right-links">
+            
+            <a href="#" onclick= "logout()"> <button class="btn">Log Out</button></a>
+        </div>         
+    </div>
+    <main>
+        <div class="main-box top">
+            <div class="top">
+                <p>Hello, <span id="username"></span>!</p>
+            </div>
+            <div class="box">
+                <p>Welcome <span id= 'email'></span>.</p>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="box">
+                <p>This is your profile.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        
+        var username = localStorage.getItem('username');
+
+        if (username) {
+            document.getElementById('username').innerText = username;
+            
+
+        }
+
+
+        function logout() {
+           
+            localStorage.removeItem('username');
+            localStorage.removeItem('expireTime');
+
+            window.location.href = 'http://localhost:5500/Style/index.html';
+        }
+    </script>
+</body>
+</html>
