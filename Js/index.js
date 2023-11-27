@@ -1,11 +1,11 @@
 $(document).ready(
      function ajaxCall() {
     
-    var username = localStorage.getItem('username');
+    var session = localStorage.getItem('session');
     var expireTime = localStorage.getItem('expireTime');
     var currentTime = new Date().getTime();
 
-    if (username && expireTime && currentTime < expireTime) {
+    if (session && expireTime && currentTime < expireTime) {
        
         window.location.href = 'http://localhost:5500/Style/home.html';
     }
@@ -31,8 +31,8 @@ $(document).ready(
                     var username = $('#username').val();
                     var expireTime = new Date();
                     expireTime.setMinutes(expireTime.getMinutes() + 1); 
-                    localStorage.setItem('username', username);
-                    localStorage.setItem('expireTime', expireTime.getTime());
+                    localStorage.setItem('session', response.session);
+                    localStorage.setItem('expireTime', expireTime.getTime()+60);
                     window.location.href = 'http://localhost:5500/Style/home.html';
                 } else {
                   

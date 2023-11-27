@@ -1,17 +1,17 @@
 $(document).ready(
     function ajaxCall() {
-    var username = localStorage.getItem('username');
+    var session = localStorage.getItem('session');
     var expireTime = localStorage.getItem('expireTime');
     var currentTime = new Date().getTime();
 
-    if (username && expireTime && currentTime < expireTime) {
+    if (session && expireTime && currentTime < expireTime) {
         
         window.location.href = 'http://localhost:5500/Style/home.html';
     }
  
     $("#registerForm").submit(function(event) {
         event.preventDefault(); 
-
+ 
         
         var formData = $(this).serialize();
 
